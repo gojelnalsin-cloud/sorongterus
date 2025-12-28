@@ -1,0 +1,13 @@
+# BEGIN STANDARD SAFE CONFIG
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Jangan ganggu file & folder asli
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback hanya jika tidak ada file/folder
+RewriteRule ^ index.php [L]
+</IfModule>
+# END STANDARD SAFE CONFIG
